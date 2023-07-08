@@ -21,13 +21,16 @@
 {{/* MathJax */}}
 {{ if (.Scratch.Get "params").math }}
     {{ $math_js := resources.Get "js/math.js" }}
+    {{ $tex_js := resources.Get "lib/js/tex-mml-chtml.js" }}
     {{- if hugo.IsProduction -}}
         {{ $math_js = $math_js | js.Build (dict "minify" true) | resources.Fingerprint "sha512" -}}
+        {{ $tex_js = $tex_js | js.Build (dict "minify" true) | resources.Fingerprint "sha512" -}}
     {{- else -}}
         {{ $math_js = $math_js | js.Build -}}
+        {{ $tex_js = $tex_js | js.Build -}}
     {{- end -}}
-    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script defer src="{{ $math_js.RelPermalink }}" integrity="{{- $math_js.Data.Integrity -}}"></script>
+    <script defer src="{{ $tex_js.RelPermalink }}" integrity="{{- $tex_js.Data.Integrity -}}"></script>
 {{ end }}
 
 {{/*  Load script for only page contain codeblock  */}}
