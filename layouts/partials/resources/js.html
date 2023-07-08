@@ -1,12 +1,3 @@
-{{/*  Header  */}}
-{{ $header_js := resources.Get "js/header.js" }}
-{{- if hugo.IsProduction -}}
-    {{ $header_js = $header_js | js.Build (dict "minify" true) | resources.Fingerprint "sha512" -}}
-{{- else -}}
-    {{ $header_js = $header_js | js.Build -}}
-{{- end -}}
-<script defer src="{{ $header_js.RelPermalink }}" integrity="{{- $header_js.Data.Integrity -}}"></script>
-
 {{/*  Zooming.js  */}}
 {{ if (.Scratch.Get "params").enable_zooming_js }}
     {{ $zooming_js := resources.Get "js/zooming.js" }}
