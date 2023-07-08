@@ -1,11 +1,5 @@
 <header>
     <div class="brand">
-        <div id="sidebar_btn">
-            <svg id="menu_icon" width="26px" height="26px" viewBox="0 0 24 24">
-                {{- partial "svg/menu.html" -}}
-            </svg>
-        </div>
-
         <div>
             <a href="{{ .Site.Home.RelPermalink }}">
                 {{- with (.Scratch.Get "params").navbar_title }}
@@ -14,16 +8,6 @@
             </a>
         </div>
     </div>
-
-    <div class="toolbox">
-        <div id="theme_tool">
-            <svg id="dark_mode_btn" class="hidden toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
-                {{- partial "svg/sun.html" -}}
-            </svg>
-            <svg id="light_mode_btn" class="hidden toolbox-btn" width="18px" height="18px" viewBox="0 0 24 24">
-                {{- partial "svg/moon.html" -}}
-            </svg>
-        </div>
 
         {{ if (.Scratch.Get "params").enable_site_search }}
             <div id="search_tool">
