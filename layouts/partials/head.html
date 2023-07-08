@@ -38,14 +38,5 @@
         {{ template "_internal/google_analytics_async.html" . }}
     {{ end }}
 
-    {{/*  Dark theme: inline in `head` to avoid FOUC  */}}
-    <script>
-        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.setAttribute("data-theme", "dark");
-        } else {
-            document.documentElement.setAttribute("data-theme", "light");
-        }
-    </script>
-
     {{- partial "resources/js.html" . -}}
 </head>
