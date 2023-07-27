@@ -18,16 +18,17 @@ function show_sidebar() {
     sidebar.classList.remove("close");
 }
 
-window.addEventListener("DOMContentLoaded", function () {
+window.addEventListener("DOMContentLoaded", function() {
     const sidebar_btn = document.getElementById("sidebar_btn");
-    sidebar_btn.addEventListener("click", function () {
+    sidebar_btn.addEventListener("click", function() {
         show_canvas();
         show_sidebar();
     });
 
     const sidebar_canvas_overlay = document.getElementById("sidebar_canvas_overlay");
-    sidebar_canvas_overlay.addEventListener("click", function () {
+    sidebar_canvas_overlay.addEventListener("click", function() {
         hide_canvas();
         hide_sidebar();
     });
+
 });
